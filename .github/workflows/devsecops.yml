@@ -52,7 +52,6 @@ jobs:
     # ── 6. SAST — SonarCloud (FIXED) ──────────────────────────
     - name: SAST — SonarCloud scan
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         JWT_SECRET:  ${{ secrets.JWT_SECRET }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -60,7 +59,6 @@ jobs:
           -Dsonar.projectKey=arunkkram-tech_sbi-dev-sec-ops-2026 \
           -Dsonar.organization=arunkkram-tech \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$SONAR_TOKEN \
           -Dsonar.qualitygate.wait=true
 
     # ── 7. SCA — Dependency Check ─────────────────────────────
