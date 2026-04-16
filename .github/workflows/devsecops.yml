@@ -103,18 +103,34 @@ jobs:
     - name: Build Docker image
       run: docker build -t sbi-ems:${{ github.sha }} .
 
+    # # ── 9. Container Scan — Trivy ─────────────────────────────
+    # - name: Container scan — Trivy
+    #   run: |
+    #     docker run --rm \
+    #       -v /var/run/docker.sock:/var/run/docker.sock \
+    #       -v $HOME/.cache/trivy:/root/.cache/trivy \
+    #       aquasec/trivy:latest image \
+    #         --severity HIGH,CRITICAL \
+    #         --exit-code 0 \
+    #         --format sarif \
+    #         --output trivy-results.sarif \
+    #         sbi-ems:${{ github.sha }}
+
+    # - name: Upload Trivy SARIF
+    #   uses: github/codeql-action/upload-sarif@v3
+    #   if: always()
+    #   with:
+    #     sarif_file: trivy-results.sarif
+
     # ── 9. Container Scan — Trivy ─────────────────────────────
-    - name: Container scan — Trivy
-      run: |
-        docker run --rm \
-          -v /var/run/docker.sock:/var/run/docker.sock \
-          -v $HOME/.cache/trivy:/root/.cache/trivy \
-          aquasec/trivy:latest image \
-            --severity HIGH,CRITICAL \
-            --exit-code 0 \
-            --format sarif \
-            --output trivy-results.sarif \
-            sbi-ems:${{ github.sha }}
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'sbi-ems:${{ github.sha }}'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        severity: 'HIGH,CRITICAL'
+        exit-code: '0' # Change to '1' if you want to fail the pipeline on vulnerabilities
 
     - name: Upload Trivy SARIF
       uses: github/codeql-action/upload-sarif@v3
