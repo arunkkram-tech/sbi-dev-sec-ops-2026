@@ -57,7 +57,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         mvn -X sonar:sonar \
-          -Dsonar.projectKey=arunkkram-tech \
+          -Dsonar.projectKey=arunkkram-tech_sbi-dev-sec-ops-2026 \
           -Dsonar.organization=arunkkram-tech \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONAR_TOKEN \
