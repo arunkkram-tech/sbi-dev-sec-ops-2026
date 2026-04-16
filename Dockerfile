@@ -25,7 +25,8 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # ── Stage 1: Build (Maven + JDK — used only at build time) ───────────────────
-FROM eclipse-temurin:21-jdk-alpine AS build
+#FROM eclipse-temurin:21-jdk-alpine AS build
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 
 LABEL stage="builder"
 
