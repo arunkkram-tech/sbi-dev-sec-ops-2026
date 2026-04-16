@@ -39,7 +39,8 @@
         <!-- SonarQube plugin configuration -->
 		<!-- <sonar.organization>vaman-pundit</sonar.organization> -->
         <!-- <sonar.host.url>http://localhost:9000</sonar.host.url> -->
-	    <sonar.projectKey>sbi-ems</sonar.projectKey>
+	    <sonar.projectKey>arunkkram-tech_sbi-dev-sec-ops-2026</sonar.projectKey>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	    <sonar.projectName>SBI Employee Management System</sonar.projectName>
 	    <sonar.java.source>17</sonar.java.source>
 	    <sonar.exclusions>**/test/**,**/generated/**</sonar.exclusions>
