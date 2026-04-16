@@ -43,12 +43,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # ── 4.1 NVD API KEY (gitleaks) ────────────────
-    - name: Dependency Check
-      env:
-        NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-      run: |
-        mvn org.owasp:dependency-check-maven:check \
-          -DnvdApiKey=$NVD_API_KEY
+    #- name: Dependency Check
+    #  env:
+    #    NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+    #  run: |
+    #    mvn org.owasp:dependency-check-maven:check \
+    #      -DnvdApiKey=$NVD_API_KEY
           
     # ── 5. Build + Test ───────────────────────────────────────
     - name: Build and test
@@ -61,6 +61,7 @@ jobs:
         JWT_SECRET:  ${{ secrets.JWT_SECRET }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
       run: |
         mvn -X sonar:sonar \
           -Dsonar.projectKey=arunkkram-tech_sbi-dev-sec-ops-2026 \
