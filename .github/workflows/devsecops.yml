@@ -63,7 +63,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
       run: |
-        mvn -X sonar:sonar \
+        mvn sonar:sonar \
           -Dsonar.projectKey=arunkkram-tech_sbi-dev-sec-ops-2026 \
           -Dsonar.organization=arunkkram-tech \
           -Dsonar.host.url=https://sonarcloud.io \
@@ -76,6 +76,7 @@ jobs:
       run: |
         mvn dependency-check:check \
           -DnvdApiKey=$NVD_API_KEY \
+          -DnvdApiDelay=16000 \
           -DfailBuildOnCVSS=7 \
           -Dformat=HTML \
           -DoutputDirectory=target/dependency-check-report
