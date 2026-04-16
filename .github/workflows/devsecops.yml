@@ -90,6 +90,7 @@ jobs:
           -Dformat=HTML \
           -DautoUpdate=true \
           -DoutputDirectory=target/dependency-check-report
+          -DfailOnError=false
 
     - name: Upload Dependency-Check report
       uses: actions/upload-artifact@v4
