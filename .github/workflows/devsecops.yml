@@ -47,13 +47,13 @@ jobs:
     - name: Build and test
       run: mvn clean verify -q
       env:
-        JWT_SECRET: ${{ secrets.JWT_SECRET_TEST }}
+        JWT_SECRET: ${{ secrets.JWT_TOKEN }}
 
     # ── 6. SAST — SonarCloud (FIXED) ──────────────────────────
     - name: SAST — SonarCloud scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        JWT_SECRET:  ${{ secrets.JWT_SECRET_TEST }}
+        JWT_SECRET:  ${{ secrets.JWT_TOKEN }}
       run: |
         mvn sonar:sonar \
           -Dsonar.projectKey=vaman-pundit_sbi-dev-sec-ops-2026 \
@@ -113,7 +113,7 @@ jobs:
       run: |
         docker run -d --name ems-dast \
           -p 8080:8080 \
-          -e JWT_SECRET=${{ secrets.JWT_SECRET_TEST }} \
+          -e JWT_SECRET=${{ secrets.JWT_TOKEN }} \
           sbi-ems:${{ github.sha }}
 
         echo "Waiting for app..."
