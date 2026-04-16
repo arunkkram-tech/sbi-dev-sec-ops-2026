@@ -39,7 +39,7 @@
         <!-- SonarQube plugin configuration -->
 		<!-- <sonar.organization>vaman-pundit</sonar.organization> -->
         <!-- <sonar.host.url>http://localhost:9000</sonar.host.url> -->
-	    <sonar.projectKey>arunkkram-tech</sonar.projectKey>
+	    <sonar.projectKey>arunkkram-tech_sbi-dev-sec-ops-2026</sonar.projectKey>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	    <sonar.projectName>arunkkram-tech</sonar.projectName>
 	    <sonar.java.source>17</sonar.java.source>
