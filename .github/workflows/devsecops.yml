@@ -48,7 +48,7 @@ jobs:
       run: mvn clean verify -q
       env:
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
-
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     # ── 6. SAST — SonarCloud (FIXED) ──────────────────────────
     - name: SAST — SonarCloud scan
       env:
