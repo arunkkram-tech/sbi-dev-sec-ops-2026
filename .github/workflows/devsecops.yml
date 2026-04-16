@@ -138,12 +138,20 @@ jobs:
       with:
         sarif_file: trivy-results.sarif
 
+    # # ── 10. Dockerfile scan ───────────────────────────────────
+    # - name: Dockerfile scan — Trivy config
+    #   run: |
+    #     docker run --rm \
+    #       -v $(pwd):/workspace \
+    #       aquasec/trivy:latest config \
+    #       /workspace/Dockerfile
+
     # ── 10. Dockerfile scan ───────────────────────────────────
     - name: Dockerfile scan — Trivy config
       run: |
         docker run --rm \
           -v $(pwd):/workspace \
-          aquasec/trivy:latest config \
+          ghcr.io/aquasecurity/trivy:latest config \
           /workspace/Dockerfile
 
     # ── 11. Run app for DAST ──────────────────────────────────
