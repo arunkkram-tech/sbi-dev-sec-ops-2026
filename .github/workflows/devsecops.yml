@@ -75,6 +75,7 @@ jobs:
         NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
       run: |
         mvn dependency-check:check \
+          -DnvdApiKey=$NVD_API_KEY \
           -DfailBuildOnCVSS=7 \
           -Dformat=HTML \
           -DoutputDirectory=target/dependency-check-report
