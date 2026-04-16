@@ -81,7 +81,7 @@ jobs:
       env:
         NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
       run: |
-        mvn dependency-check:check \
+        mvn -X dependency-check:check \
           -DnvdApiKey=$NVD_API_KEY \
           -DnvdApiDelay=16000 \
           -DfailBuildOnCVSS=7 \
