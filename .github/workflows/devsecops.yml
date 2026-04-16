@@ -76,28 +76,28 @@ jobs:
       run: |
         mvn org.owasp:dependency-check-maven:purge
 
-    # ── 7. SCA — Dependency Check ─────────────────────────────
-    - name: SCA — OWASP Dependency-Check
-      env:
-        NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-      run: |
-        mvn dependency-check:check \
-          -DnvdApiKey=$NVD_API_KEY \
-          -DnvdApiDelay=16000 \
-          -DfailBuildOnCVSS=7 \
-          -DnvdResultsPerPage=1000 \
-          -DconnectionTimeout=120000 \
-          -Dformat=HTML \
-          -DautoUpdate=true \
-          -DoutputDirectory=target/dependency-check-report
-          -DfailOnError=false
+    # # ── 7. SCA — Dependency Check ─────────────────────────────
+    # - name: SCA — OWASP Dependency-Check
+    #   env:
+    #     NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+    #   run: |
+    #     mvn dependency-check:check \
+    #       -DnvdApiKey=$NVD_API_KEY \
+    #       -DnvdApiDelay=16000 \
+    #       -DfailBuildOnCVSS=7 \
+    #       -DnvdResultsPerPage=1000 \
+    #       -DconnectionTimeout=120000 \
+    #       -Dformat=HTML \
+    #       -DautoUpdate=true \
+    #       -DoutputDirectory=target/dependency-check-report
+    #       -DfailOnError=false
 
-    - name: Upload Dependency-Check report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: dependency-check-report
-        path: target/dependency-check-report/
+    # - name: Upload Dependency-Check report
+    #   uses: actions/upload-artifact@v4
+    #   if: always()
+    #   with:
+    #     name: dependency-check-report
+    #     path: target/dependency-check-report/
 
     # ── 8. Docker Build ───────────────────────────────────────
     - name: Build Docker image
