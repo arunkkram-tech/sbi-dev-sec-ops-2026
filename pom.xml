@@ -189,7 +189,6 @@
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>12.2.1</version>
-                <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
                 <configuration>
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                     <format>HTML</format>
