@@ -78,6 +78,8 @@ jobs:
           -DnvdApiKey=$NVD_API_KEY \
           -DnvdApiDelay=16000 \
           -DfailBuildOnCVSS=7 \
+          -DnvdResultsPerPage=1000 \
+          -DconnectionTimeout=120000 \
           -Dformat=HTML \
           -DoutputDirectory=target/dependency-check-report
 

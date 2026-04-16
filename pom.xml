@@ -175,14 +175,23 @@
             </plugin>
 
 			<!-- OWASP Dependency-Check - SCA/CVE gate -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>9.1.0</version>
+                <version>12.2.1</version>
                 <configuration>
                     <failBuildOnCVSS>${dependency.check.failBuildOnCVSS}</failBuildOnCVSS>
                     <format>HTML</format>
                     <outputDirectory>${project.build.directory}/dependency-check-report</outputDirectory>
+                </configuration>
+            </plugin> -->
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>12.2.1</version>
+                <configuration>
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <format>HTML</format>
                 </configuration>
             </plugin>
 
