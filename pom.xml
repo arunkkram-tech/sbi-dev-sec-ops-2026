@@ -10,7 +10,7 @@
          PROJECT COORDINATES
          ═══════════════════════════════════════════════════════════════════════ -->
     <groupId>com.sbi</groupId>
-    <artifactId>arunkkram-tech</artifactId>
+    <artifactId>arunkkram-tech_sbi-dev-sec-ops-2026</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>SBI Employee Management System</name>
