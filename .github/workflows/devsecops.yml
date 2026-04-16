@@ -47,13 +47,13 @@ jobs:
     - name: Build and test
       run: mvn clean verify -q
       env:
-        JWT_SECRET: ${{ secrets.JWT_TOKEN }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
     # ── 6. SAST — SonarCloud (FIXED) ──────────────────────────
     - name: SAST — SonarCloud scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        JWT_SECRET:  ${{ secrets.JWT_TOKEN }}
+        JWT_SECRET:  ${{ secrets.JWT_SECRET }}
       run: |
         mvn sonar:sonar \
           -Dsonar.projectKey=vaman-pundit_sbi-dev-sec-ops-2026 \
