@@ -57,8 +57,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         mvn sonar:sonar \
-          -Dsonar.projectKey=sbi-ems \
-          -Dsonar.organization=sbi-training_sbi-dev-sec-ops-2026 \
+          -Dsonar.projectKey=sbi-ems_sbi-dev-sec-ops-2026 \
+          -Dsonar.organization=sbi-training \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONAR_TOKEN \
           -Dsonar.qualitygate.wait=true
