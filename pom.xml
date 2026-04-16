@@ -33,15 +33,15 @@
         <java.version>17</java.version>
         <jjwt.version>0.12.5</jjwt.version>
         <springdoc.version>2.5.0</springdoc.version>
-        <sonar.organization>sbi-training</sonar.organization>
+        <sonar.organization>arunkkram-tech</sonar.organization>
         <!-- OWASP Dependency-Check: fail build on CVSS >= 7 -->
         <dependency.check.failBuildOnCVSS>7</dependency.check.failBuildOnCVSS>
         <!-- SonarQube plugin configuration -->
 		<!-- <sonar.organization>vaman-pundit</sonar.organization> -->
         <!-- <sonar.host.url>http://localhost:9000</sonar.host.url> -->
-	    <sonar.projectKey>arunkkram-tech_sbi-dev-sec-ops-2026</sonar.projectKey>
+	    <sonar.projectKey>arunkkram-tech</sonar.projectKey>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-	    <sonar.projectName>SBI Employee Management System</sonar.projectName>
+	    <sonar.projectName>arunkkram-tech</sonar.projectName>
 	    <sonar.java.source>17</sonar.java.source>
 	    <sonar.exclusions>**/test/**,**/generated/**</sonar.exclusions>
     </properties>
